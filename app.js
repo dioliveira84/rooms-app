@@ -18,6 +18,7 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 // const User = require("./models/user");
 const bcrypt = require("bcrypt");
 const flash = require("connect-flash");
+const index = require('./routes/index');
 
 mongoose
   .connect('mongodb://localhost/rooms-app', {
@@ -58,7 +59,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.locals.title = 'Rooms App';
 
 // routes middleware goes here
-const index = require('./routes/index');
 app.use('/', index);
 
 module.exports = app;
